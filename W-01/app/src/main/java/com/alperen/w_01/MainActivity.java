@@ -1,4 +1,4 @@
-package com.alperen.w01;
+package com.alperen.w_01;
 
 import androidx.appcompat.app.AppCompatActivity;
 
