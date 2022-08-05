@@ -4,15 +4,116 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <TextView
+        android:id="@+id/tvInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        android:text="info"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnAddBmw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Add BMW"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toStartOf="@id/btnAddMercedes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvInfo" />
+
+    <Button
+        android:id="@+id/btnAddMercedes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Mercedes"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@id/btnAddBmw"
+        app:layout_constraintEnd_toStartOf="@id/btnAddAudi"
+        app:layout_constraintStart_toEndOf="@id/btnAddBmw"
+        app:layout_constraintTop_toTopOf="@id/btnAddBmw" />
+
+    <Button
+        android:id="@+id/btnAddAudi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Audi"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@id/btnAddMercedes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnAddMercedes"
+        app:layout_constraintTop_toTopOf="@id/btnAddMercedes" />
+
+    <EditText
+        android:id="@+id/etCarName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:hint="Car name"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@id/scroll"
+        app:layout_constraintEnd_toStartOf="@id/etHorsePower"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnAddBmw" />
+
+    <EditText
+        android:id="@+id/etHorsePower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Horse power"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@id/etCarName"
+        app:layout_constraintEnd_toStartOf="@id/etTirePressure"
+        app:layout_constraintStart_toEndOf="@id/etCarName"
+        app:layout_constraintTop_toTopOf="@id/etCarName" />
+
+    <EditText
+        android:id="@+id/etTirePressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Tire pressure"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@id/etCarName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/etHorsePower"
+        app:layout_constraintTop_toTopOf="@id/etCarName" />
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="12dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@id/btnClearDb"
+        app:layout_constraintTop_toBottomOf="@id/etCarName">
+
+        <TextView
+            android:id="@+id/tvDatabase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnClearDb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Clear Database"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scroll" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
