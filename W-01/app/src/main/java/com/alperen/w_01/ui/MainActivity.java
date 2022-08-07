@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getDb();
     }
 
+    // A basic observer for database
     private void getDb() {
         FirebaseDatabase.getInstance().getReference("cars").
                 addValueEventListener(new ValueEventListener() {

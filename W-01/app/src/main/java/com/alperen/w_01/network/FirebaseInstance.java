@@ -70,6 +70,7 @@ public class FirebaseInstance {
                 });
     }
 
+    // Set error message or situation (success of fail)
     private static void setMessage(String errorText, Activity activity) {
         new AlertDialog.Builder(activity)
                 .setTitle("Error")

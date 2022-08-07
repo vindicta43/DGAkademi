@@ -84,6 +84,7 @@ abstract public class Vehicle {
         }
     }
 
+    // Dependencies for vehicle
     private Engine engine;
     private Wheel wheel;
     private Door door;
