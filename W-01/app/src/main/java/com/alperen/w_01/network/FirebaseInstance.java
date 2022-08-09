@@ -19,30 +19,24 @@ public class FirebaseInstance {
     private static final FirebaseAuth auth = FirebaseAuth.getInstance();
     private static final FirebaseDatabase db = FirebaseDatabase.getInstance();
 
-    public static void login(String email, String password, Activity loginActivity) {
+    public static void login(String email, String password, Activity activity) {
         auth.signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener(runnable -> {
-                    Intent intent = new Intent(loginActivity, MainActivity.class);
-                    loginActivity.startActivity(intent);
+                    Intent intent = new Intent(activity, MainActivity.class);
+                    activity.startActivity(intent);
                 })
                 .addOnFailureListener(runnable -> {
-                    new AlertDialog.Builder(loginActivity)
-                            .setTitle("Error")
-                            .setMessage(runnable.getMessage())
-                            .setPositiveButton("Okay", (dialogInterface, i) -> {
-                            })
-                            .create()
-                            .show();
+                    setMessage("Error", runnable.getMessage(), activity);
                 });
     }
 
     public static void register(String email, String password, Activity activity) {
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnSuccessListener(runnable -> {
-                    setMessage("Account created successfully", activity);
+                    setMessage("Success", "Account created successfully", activity);
                 })
                 .addOnFailureListener(runnable -> {
-                    setMessage(runnable.getMessage(), activity);
+                    setMessage("Error", runnable.getMessage(), activity);
                 });
     }
 
@@ -52,10 +46,10 @@ public class FirebaseInstance {
                 .child(randomId.toString())
                 .setValue(car)
                 .addOnSuccessListener(runnable -> {
-                    setMessage("Car added successfully", activity);
+                    setMessage("Success", "Car added successfully", activity);
                 })
                 .addOnFailureListener(runnable -> {
-                    setMessage(runnable.getMessage(), activity);
+                    setMessage("Error", runnable.getMessage(), activity);
                 });
     }
 
@@ -63,18 +57,18 @@ public class FirebaseInstance {
         db.getReference()
                 .removeValue()
                 .addOnSuccessListener(runnable -> {
-                    setMessage("Database cleared successfully", activity);
+                    setMessage("Success", "Database cleared successfully", activity);
                 })
                 .addOnFailureListener(runnable -> {
-                    setMessage(runnable.getMessage(), activity);
+                    setMessage("Error", runnable.getMessage(), activity);
                 });
     }
 
     // Set error message or situation (success of fail)
-    private static void setMessage(String errorText, Activity activity) {
+    private static void setMessage(String title, String message, Activity activity) {
         new AlertDialog.Builder(activity)
-                .setTitle("Error")
-                .setMessage(errorText)
+                .setTitle(title)
+                .setMessage(message)
                 .setPositiveButton("Okay", (dialogInterface, i) -> {
                 })
                 .create()

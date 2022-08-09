@@ -104,8 +104,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String pressure = etTirePressure.getText().toString();
 
         // Clear db button click listener
-        if (view.getId() == R.id.btnClearDb)
+        if (view.getId() == R.id.btnClearDb) {
             FirebaseInstance.clearDb(this);
+            return;
+        }
 
         // If all fields are filled write data on database
         if (!carName.isEmpty() && !hp.isEmpty() && !pressure.isEmpty()) {
