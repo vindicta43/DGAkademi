@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">W-02</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sign_up">
+        <font color="#7F4E1D">Don\'t have an acoount? </font> <font color="#FF5E00">Sign Up</font>
+    </string>
+
+    <string name="required_field">This field must be filled</string>
 </resources>
