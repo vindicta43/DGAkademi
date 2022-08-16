@@ -1,4 +1,4 @@
-package com.alperen.w_02;
+package com.alperen.w_02.ui.auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;

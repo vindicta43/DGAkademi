@@ -7,4 +7,5 @@
     </string>
 
     <string name="required_field">This field must be filled</string>
+    <string name="password_doesnt_match">Passwords must match</string>
 </resources>

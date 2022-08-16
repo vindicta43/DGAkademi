@@ -1,24 +1,60 @@
 package com.alperen.w_02.ui.auth;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.alperen.w_02.R;
 import com.alperen.w_02.databinding.FragmentSignInBinding;
+import com.alperen.w_02.utils.FirebaseRepository;
+import com.alperen.w_02.utils.IAuthInterface;
+import com.alperen.w_02.utils.W02Util;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 
 public class SignInFragment extends Fragment {
     private FragmentSignInBinding binding;
+    private String fieldRequired = "";
+    private IAuthInterface iAuthInterface;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentSignInBinding.inflate(getLayoutInflater());
+        fieldRequired = getResources().getString(R.string.required_field);
+
+        iAuthInterface = new IAuthInterface() {
+            @Override
+            public void processing() {
+                binding.progress.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void success(String action) {
+                binding.progress.setVisibility(View.GONE);
+                if (action.equals("signIn")) {
+                    // TODO: Navigate to main activity
+                    // Navigation.findNavController(binding.getRoot()).navigate(R.id);
+                }
+
+                if (action.equals("resetMail")) {
+                    W02Util.setDialog(getContext(), "Success", "A reset mail has been sent");
+                }
+            }
+
+            @Override
+            public void fail(String title, String msg) {
+                binding.progress.setVisibility(View.GONE);
+                W02Util.setDialog(getContext(), title, msg);
+            }
+        };
+
         return binding.getRoot();
     }
 
@@ -30,18 +66,20 @@ public class SignInFragment extends Fragment {
             String email = binding.etEmail.getText().toString();
             String password = binding.etPassword.getText().toString();
             if (!email.isEmpty() && !password.isEmpty()) {
-                // TODO: login işlemleri
+                FirebaseRepository.signIn(email, password, iAuthInterface);
             } else {
-                binding.layoutEmail.setErrorEnabled(true);
-                binding.layoutEmail.setError(getResources().getString(R.string.required_field));
-
-                binding.layoutPassword.setErrorEnabled(true);
-                binding.layoutPassword.setError(getResources().getString(R.string.required_field));
+                W02Util.setError(true, binding.layoutEmail, fieldRequired);
+                W02Util.setError(true, binding.layoutPassword, fieldRequired);
             }
         });
 
         binding.tvForgotPassword.setOnClickListener(view -> {
-            // TODO: forgot password işlemi firebase ile
+            String email = binding.etEmail.getText().toString();
+            if (!email.isEmpty()) {
+                FirebaseRepository.sendResetMail(email, iAuthInterface);
+            } else {
+                W02Util.setDialog(getContext(), "Alert", "Email field must be filled");
+            }
         });
 
         binding.tvSignUp.setOnClickListener(view -> {
@@ -56,14 +94,7 @@ public class SignInFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (charSequence.length() == 0) {
-                    binding.layoutEmail.setErrorEnabled(true);
-                    binding.layoutEmail.setError(getResources().getString(R.string.required_field));
-                }
-                else {
-                    binding.layoutEmail.setErrorEnabled(false);
-                    binding.layoutEmail.setError(null);
-                }
+                W02Util.setError(charSequence.length() == 0, binding.layoutEmail, fieldRequired);
             }
 
             @Override
@@ -80,14 +111,7 @@ public class SignInFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (charSequence.length() == 0) {
-                    binding.layoutPassword.setErrorEnabled(true);
-                    binding.layoutPassword.setError(getResources().getString(R.string.required_field));
-                }
-                else {
-                    binding.layoutPassword.setErrorEnabled(false);
-                    binding.layoutPassword.setError(null);
-                }
+                W02Util.setError(charSequence.length() == 0, binding.layoutPassword, fieldRequired);
             }
 
             @Override
