@@ -23,9 +23,16 @@
         <action
             android:id="@+id/action_signInFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.alperen.w_02.ui.auth.SignUpFragment"
         android:label="SignUpFragment" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.alperen.w_02.ui.main.MainActivity"
+        android:label="MainActivity" />
 </navigation>

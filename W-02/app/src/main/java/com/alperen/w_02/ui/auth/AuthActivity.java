@@ -1,9 +1,7 @@
 package com.alperen.w_02.ui.auth;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import com.alperen.w_02.databinding.ActivityAuthBinding;

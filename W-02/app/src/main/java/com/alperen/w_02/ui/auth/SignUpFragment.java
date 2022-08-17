@@ -63,6 +63,10 @@ public class SignUpFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
+        binding.ibBack.setOnClickListener(view -> {
+            Navigation.findNavController(view).popBackStack();
+        });
+
         binding.btnSignUp.setOnClickListener(view -> {
             String email = binding.etEmail.getText().toString();
             String password = binding.etPassword.getText().toString();

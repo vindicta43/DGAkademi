@@ -3,16 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-02/app/src/main/res/drawable/button_add_selector.xml" value="0.1575" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-02/app/src/main/res/drawable/button_add_vector.xml" value="0.1575" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-02/app/src/main/res/drawable/button_selector.xml" value="0.1985" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-02/app/src/main/res/drawable/ic_visibility.xml" value="0.1995" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-02/app/src/main/res/drawable/password_selector.xml" value="0.1985" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-02/app/src/main/res/layout/activity_auth.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-02/app/src/main/res/layout/activity_login.xml" value="0.22" />
-        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-02/app/src/main/res/layout/activity_main.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-02/app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-02/app/src/main/res/layout/fragment_cart.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-02/app/src/main/res/layout/fragment_home.xml" value="0.16" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-02/app/src/main/res/layout/fragment_login.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-02/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-02/app/src/main/res/layout/fragment_sign_in.xml" value="0.2" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-02/app/src/main/res/layout/fragment_sign_up.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-02/app/src/main/res/layout/fragment_splash.xml" value="0.2" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-02/app/src/main/res/layout/recyclerview_main_item.xml" value="0.33" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-02/app/src/main/res/menu/bottom_nav_menu.xml" value="0.190625" />
       </map>
     </option>
   </component>

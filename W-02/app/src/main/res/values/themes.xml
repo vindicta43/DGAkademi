@@ -15,4 +15,9 @@
         <item name="android:windowFullscreen">true</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="BottomNavTextStyle">
+        <item name="fontFamily">@font/poppins_light</item>
+        <item name="android:textSize">10sp</item>
+    </style>
 </resources>

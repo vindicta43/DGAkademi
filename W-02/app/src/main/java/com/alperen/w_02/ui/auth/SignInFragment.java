@@ -39,8 +39,7 @@ public class SignInFragment extends Fragment {
             public void success(String action) {
                 binding.progress.setVisibility(View.GONE);
                 if (action.equals("signIn")) {
-                    // TODO: Navigate to main activity
-                    // Navigation.findNavController(binding.getRoot()).navigate(R.id);
+                    Navigation.findNavController(binding.getRoot()).navigate(R.id.action_signInFragment_to_mainActivity);
                 }
 
                 if (action.equals("resetMail")) {
