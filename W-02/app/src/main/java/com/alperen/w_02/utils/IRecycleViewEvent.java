@@ -7,4 +7,5 @@ import com.alperen.w_02.models.ProductModel;
  */
 public interface IRecycleViewEvent {
     void addItemToCart(ProductModel item);
+    void removeItemFromCart(ProductModel item);
 }

@@ -9,11 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.alperen.w_02.R;
+import com.alperen.w_02.databinding.FragmentProfileBinding;
 
 public class ProfileFragment extends Fragment {
+    FragmentProfileBinding binding;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = FragmentProfileBinding.inflate(getLayoutInflater());
+        return binding.getRoot();
+    }
 
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+    @Override
+    public void onResume() {
+        super.onResume();
+
     }
 }

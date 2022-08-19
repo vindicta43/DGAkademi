@@ -12,20 +12,34 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.alperen.w_02.R;
 import com.alperen.w_02.models.ProductModel;
+import com.alperen.w_02.ui.main.MainActivity;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * Created by Alperen on 17.08.2022.
  */
 public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapter.ViewHolder> {
     private List<ProductModel> list;
+    private List<ProductModel> cartItems;
+    IRecycleViewEvent event;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
         }
 
+        // Added item count variable
+        int frequency = 0;
         ImageView ivCartImage = itemView.findViewById(R.id.ivCartImage);
         TextView tvCartItemName = itemView.findViewById(R.id.tvCartItemName);
         ImageButton ibCartMinus = itemView.findViewById(R.id.ibCartMinus);
@@ -34,8 +48,14 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
         TextView tvCartItemPrice = itemView.findViewById(R.id.tvCartItemPrice);
     }
 
-    public CartRecyclerAdapter(List<ProductModel> list) {
+    public CartRecyclerAdapter(List<ProductModel> list, IRecycleViewEvent event) {
         this.list = list;
+        List<ProductModel> temp = list.stream()
+                .filter(distinctByKey(ProductModel::getId))
+                .collect(Collectors.toList());
+
+        this.cartItems = new ArrayList<ProductModel>(temp);
+        this.event = event;
     }
 
     @NonNull
@@ -47,11 +67,53 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.frequency = getFrequency(cartItems.get(position));
 
+        holder.tvCartItemName.setText(cartItems.get(position).name);
+        holder.tvCartItemPrice.setText(String.valueOf(cartItems.get(position).price * holder.frequency));
+        holder.tvCartQuantity.setText(String.valueOf(holder.frequency));
+
+        StorageReference reference = FirebaseStorage.getInstance().getReference(cartItems.get(position).image);
+        GlideApp.with(holder.itemView.getContext())
+                .load(reference)
+                .into(holder.ivCartImage);
+
+        holder.ibCartMinus.setOnClickListener(view -> {
+            if (holder.frequency == 1) {
+                cartItems.remove(position);
+                event.removeItemFromCart(cartItems.get(position));
+                notifyDataSetChanged();
+            } else {
+                holder.frequency--;
+                event.removeItemFromCart(cartItems.get(position));
+                updateViewHolder(holder, position);
+            }
+        });
+
+        holder.ibCartPlus.setOnClickListener(view -> {
+            holder.frequency++;
+            event.addItemToCart(cartItems.get(position));
+            updateViewHolder(holder, position);
+        });
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return cartItems.size();
+    }
+
+    private int getFrequency(ProductModel item) {
+        return Collections.frequency(list, item);
+    }
+
+    private <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
+        Set<Object> seen = ConcurrentHashMap.newKeySet();
+        return t -> seen.add(keyExtractor.apply(t));
+    }
+
+    private void updateViewHolder(ViewHolder holder, int position) {
+        holder.tvCartItemPrice.setText(String.valueOf(cartItems.get(position).price * holder.frequency));
+        holder.tvCartQuantity.setText(String.valueOf(holder.frequency));
+        notifyDataSetChanged();
     }
 }

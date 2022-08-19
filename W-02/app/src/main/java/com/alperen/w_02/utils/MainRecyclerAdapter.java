@@ -62,7 +62,6 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
                         .into(holder.ivProductImage);
 
         holder.ibAddCart.setOnClickListener(view -> {
-            Toast.makeText(view.getContext(), "clicked " + list.get(position).name, Toast.LENGTH_SHORT).show();
             event.addItemToCart(list.get(position));
         });
     }

@@ -36,8 +36,12 @@ public class HomeFragment extends Fragment {
                 activity.cartList.add(item);
                 activity.setBadgeCount();
             }
-        };
 
+            @Override
+            public void removeItemFromCart(ProductModel item) {
+
+            }
+        };
 
         return binding.getRoot();
     }

@@ -24,4 +24,8 @@ public class ProductModel {
 
     public ProductModel() {
     }
+
+    public String getId() {
+        return id;
+    }
 }
