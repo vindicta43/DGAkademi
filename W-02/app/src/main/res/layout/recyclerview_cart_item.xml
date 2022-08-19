@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivCartImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginVertical="16dp"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/ic_profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCartItemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Apple"
+        android:textColor="@color/dark_brown"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/ivCartImage"
+        app:layout_constraintStart_toEndOf="@id/ivCartImage"
+        app:layout_constraintTop_toTopOf="@id/ivCartImage" />
+
+    <LinearLayout
+        android:id="@+id/layoutQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/cart_button_bg"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvCartItemName"
+        app:layout_constraintTop_toBottomOf="@id/tvCartItemName">
+
+        <ImageButton
+            android:id="@+id/ibCartMinus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/cart_button_selector"
+            android:src="@drawable/ic_minus" />
+
+        <TextView
+            android:id="@+id/tvCartQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="5"
+            android:textColor="@color/dark_brown"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:id="@+id/ibCartPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/cart_button_selector"
+            android:src="@drawable/ic_plus" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:text="$"
+        android:textColor="@color/dark_brown"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/tvCartItemPrice"
+        app:layout_constraintEnd_toStartOf="@id/tvCartItemPrice"
+        app:layout_constraintTop_toTopOf="@id/tvCartItemPrice" />
+
+
+    <TextView
+        android:id="@+id/tvCartItemPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="4.99"
+        android:textColor="@color/dark_brown"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/layoutQuantity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/layoutQuantity" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
