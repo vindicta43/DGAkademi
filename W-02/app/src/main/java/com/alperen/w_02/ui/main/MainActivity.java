@@ -15,8 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends FragmentActivity {
-    private ActivityMainBinding binding;
-    List<ProductModel> cartList = new ArrayList<>();
+    private static ActivityMainBinding binding;
+    // All items added in cart
+    public static List<ProductModel> cartList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class MainActivity extends FragmentActivity {
         NavigationUI.setupWithNavController(binding.bottomNavView, navHostFragment.getNavController());
     }
 
-    public void setBadgeCount() {
+    public static void setBadgeCount() {
         BadgeDrawable badge = binding.bottomNavView.getOrCreateBadge(R.id.cartFragment);
 
         if (cartList.size() > 0) {

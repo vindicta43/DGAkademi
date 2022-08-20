@@ -14,14 +14,14 @@ import androidx.navigation.Navigation;
 import com.alperen.w_02.R;
 import com.alperen.w_02.databinding.FragmentSignUpBinding;
 import com.alperen.w_02.utils.FirebaseRepository;
-import com.alperen.w_02.utils.IAuthInterface;
+import com.alperen.w_02.utils.INetworkStatus;
 import com.alperen.w_02.utils.W02Util;
 
 public class SignUpFragment extends Fragment {
     private FragmentSignUpBinding binding;
     private String fieldRequired = "";
     private String passwordMatch = "";
-    private IAuthInterface iAuthInterface;
+    private INetworkStatus network;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class SignUpFragment extends Fragment {
         fieldRequired = getResources().getString(R.string.required_field);
         passwordMatch = getResources().getString(R.string.password_doesnt_match);
 
-        iAuthInterface = new IAuthInterface() {
+        network = new INetworkStatus() {
             @Override
             public void processing() {
                 binding.progress.setVisibility(View.VISIBLE);
@@ -74,7 +74,7 @@ public class SignUpFragment extends Fragment {
 
             if (!email.isEmpty() && !password.isEmpty() && !confirmPwd.isEmpty()) {
                 if (password.equals(confirmPwd)) {
-                    FirebaseRepository.signUp(email, password, iAuthInterface);
+                    FirebaseRepository.signUp(email, password, network);
                 } else {
                     W02Util.setError(true, binding.layoutPassword, passwordMatch);
                     W02Util.setError(true, binding.layoutPasswordConfirm, passwordMatch);

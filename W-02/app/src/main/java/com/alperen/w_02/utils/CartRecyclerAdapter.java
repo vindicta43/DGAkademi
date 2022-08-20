@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.alperen.w_02.R;
 import com.alperen.w_02.models.ProductModel;
-import com.alperen.w_02.ui.main.MainActivity;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -31,7 +30,7 @@ import java.util.stream.Collectors;
 public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapter.ViewHolder> {
     private List<ProductModel> list;
     private List<ProductModel> cartItems;
-    IRecycleViewEvent event;
+    IRecyclerViewEvent event;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ViewHolder(@NonNull View itemView) {
@@ -48,8 +47,9 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
         TextView tvCartItemPrice = itemView.findViewById(R.id.tvCartItemPrice);
     }
 
-    public CartRecyclerAdapter(List<ProductModel> list, IRecycleViewEvent event) {
+    public CartRecyclerAdapter(List<ProductModel> list, IRecyclerViewEvent event) {
         this.list = list;
+        // Get unique product list
         List<ProductModel> temp = list.stream()
                 .filter(distinctByKey(ProductModel::getId))
                 .collect(Collectors.toList());
@@ -80,8 +80,8 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
 
         holder.ibCartMinus.setOnClickListener(view -> {
             if (holder.frequency == 1) {
-                cartItems.remove(position);
                 event.removeItemFromCart(cartItems.get(position));
+                cartItems.remove(position);
                 notifyDataSetChanged();
             } else {
                 holder.frequency--;
@@ -102,6 +102,8 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
         return cartItems.size();
     }
 
+    // Get item count for each unique item
+    // Example: 3 egg, 2 meat
     private int getFrequency(ProductModel item) {
         return Collections.frequency(list, item);
     }
@@ -116,4 +118,19 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
         holder.tvCartQuantity.setText(String.valueOf(holder.frequency));
         notifyDataSetChanged();
     }
+
+    public List<ProductModel> getCartItems() {
+        List<ProductModel> result = new ArrayList<>(cartItems);
+
+        for(ProductModel item : result) {
+            int frequency = getFrequency(item);
+            item.count = frequency;
+            item.weight *= frequency;
+            item.price *= frequency;
+        }
+
+        return result;
+    }
+
+
 }

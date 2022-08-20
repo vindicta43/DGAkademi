@@ -12,10 +12,22 @@
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.alperen.w_02.ui.main.CartFragment"
-        android:label="CartFragment" />
+        android:label="CartFragment" >
+        <action
+            android:id="@+id/action_cartFragment_to_checkoutActivity"
+            app:destination="@id/checkoutActivity" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.alperen.w_02.ui.main.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <activity
+        android:id="@+id/checkoutActivity"
+        android:name="com.alperen.w_02.ui.checkout.CheckoutActivity"
+        android:label="CheckoutActivity" >
+        <argument
+            android:name="productList"
+            app:argType="com.alperen.w_02.models.ProductModel[]" />
+    </activity>
 </navigation>

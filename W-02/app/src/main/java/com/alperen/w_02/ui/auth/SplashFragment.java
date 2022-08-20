@@ -11,6 +11,7 @@ import androidx.navigation.Navigation;
 
 import com.alperen.w_02.R;
 import com.alperen.w_02.databinding.FragmentSplashBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class SplashFragment extends Fragment {
     private FragmentSplashBinding binding;
@@ -32,7 +33,10 @@ public class SplashFragment extends Fragment {
 
             @Override
             public void onAnimationEnd(Animator animator) {
-                Navigation.findNavController(binding.getRoot()).navigate(R.id.action_splashFragment_to_signInFragment);
+                if (FirebaseAuth.getInstance().getCurrentUser() != null)
+                    Navigation.findNavController(binding.getRoot()).navigate(R.id.action_splashFragment_to_mainActivity);
+                else
+                    Navigation.findNavController(binding.getRoot()).navigate(R.id.action_splashFragment_to_signInFragment);
             }
 
             @Override

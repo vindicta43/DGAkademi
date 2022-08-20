@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="#E1E1E1">
+
+    <TextView
+        android:id="@+id/tvCheckoutProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:fontFamily="@font/poppins_bold"
+        android:text="test"
+        android:textAlignment="center"
+        android:textColor="@color/dark_brown"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvCheckoutProductCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:fontFamily="@font/poppins_light"
+        android:text="test"
+        android:textAlignment="center"
+        android:textColor="@color/dark_brown"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvCheckoutProductWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:fontFamily="@font/poppins_light"
+        android:text="test"
+        android:textAlignment="center"
+        android:textColor="@color/dark_brown"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvCheckoutProductPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:fontFamily="@font/poppins_regular"
+        android:text="test"
+        android:textAlignment="center"
+        android:textColor="@color/orange"
+        android:textSize="20sp" />
+
+</LinearLayout>

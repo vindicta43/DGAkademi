@@ -8,4 +8,6 @@
 
     <string name="required_field">This field must be filled</string>
     <string name="password_doesnt_match">Passwords must match</string>
+    <string name="cancel_checkout">Do you want to cancel your payment?</string>
+    <string name="checkout_method">Please choose your payment method</string>
 </resources>

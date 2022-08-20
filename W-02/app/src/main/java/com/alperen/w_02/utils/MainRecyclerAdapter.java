@@ -6,14 +6,12 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alperen.w_02.R;
 import com.alperen.w_02.models.ProductModel;
-import com.alperen.w_02.ui.main.MainActivity;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -24,7 +22,7 @@ import java.util.List;
  */
 public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapter.ViewHolder> {
     private List<ProductModel> list;
-    IRecycleViewEvent event;
+    IRecyclerViewEvent event;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ViewHolder(@NonNull View itemView) {
@@ -38,7 +36,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
         ImageButton ibAddCart = itemView.findViewById(R.id.ibAddCart);
     }
 
-    public MainRecyclerAdapter(List<ProductModel> list, IRecycleViewEvent event) {
+    public MainRecyclerAdapter(List<ProductModel> list, IRecyclerViewEvent event) {
         this.list = list;
         this.event = event;
     }
