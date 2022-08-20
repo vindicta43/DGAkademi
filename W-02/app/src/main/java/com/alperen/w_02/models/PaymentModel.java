@@ -13,4 +13,18 @@ public class PaymentModel {
         this.card = card;
         this.cartList = cartList;
     }
+
+    public PaymentModel() {
+    }
+
+    @Override
+    public String toString() {
+        if (card == null) {
+            return "Card: " + "(Pass payment method)" + "\n" +
+                    "Shopping Cart: " + cartList.toString() + "\n";
+        } else {
+            return "Card: " + card.toString() + "\n" +
+                    "Shopping Cart: " + cartList.toString() + "\n\n";
+        }
+    }
 }

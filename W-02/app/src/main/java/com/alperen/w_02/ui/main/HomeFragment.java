@@ -44,12 +44,16 @@ public class HomeFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
+        binding.progress.setVisibility(View.VISIBLE);
         FirebaseRepository.getAllProducts().observe(getViewLifecycleOwner(), productModels -> {
             if (productModels != null && productModels.size() > 0) {
                 MainRecyclerAdapter adapter = new MainRecyclerAdapter(productModels, event);
                 RecyclerView.LayoutManager manager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
                 binding.recyclerMain.setAdapter(adapter);
                 binding.recyclerMain.setLayoutManager(manager);
+
+                binding.recyclerMain.setVisibility(View.VISIBLE);
+                binding.progress.setVisibility(View.GONE);
             }
         });
     }

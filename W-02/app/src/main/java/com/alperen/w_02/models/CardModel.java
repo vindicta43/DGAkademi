@@ -13,4 +13,13 @@ public class CardModel {
         this.cardDate = cardDate;
         this.cardCvv = cardCvv;
     }
+
+    public CardModel() {}
+
+    @Override
+    public String toString() {
+        return "Card Number: " + cardNumber + "\n" +
+                "Card Date: " + cardDate + "\n" +
+                "Card Cvv:" + cardCvv + "\n";
+    }
 }

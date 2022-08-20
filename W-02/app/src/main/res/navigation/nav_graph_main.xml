@@ -21,7 +21,13 @@
         android:id="@+id/profileFragment"
         android:name="com.alperen.w_02.ui.main.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_authActivity"
+            app:destination="@id/authActivity"
+            app:popUpTo="@id/profileFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <activity
         android:id="@+id/checkoutActivity"
         android:name="com.alperen.w_02.ui.checkout.CheckoutActivity"
@@ -30,4 +36,8 @@
             android:name="productList"
             app:argType="com.alperen.w_02.models.ProductModel[]" />
     </activity>
+    <activity
+        android:id="@+id/authActivity"
+        android:name="com.alperen.w_02.ui.auth.AuthActivity"
+        android:label="AuthActivity" />
 </navigation>

@@ -13,15 +13,47 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.alperen.w_02.R;
 import com.alperen.w_02.databinding.FragmentSummaryBinding;
 import com.alperen.w_02.models.ProductModel;
+import com.alperen.w_02.ui.main.MainActivity;
+import com.alperen.w_02.utils.FirebaseRepository;
+import com.alperen.w_02.utils.INetworkStatus;
+import com.alperen.w_02.utils.W02Util;
 
 import java.util.Arrays;
 
 public class SummaryFragment extends Fragment {
     FragmentSummaryBinding binding;
+    INetworkStatus network;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentSummaryBinding.inflate(getLayoutInflater());
+
+        network = new INetworkStatus() {
+            @Override
+            public void processing() {
+                binding.progress.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void success(String action) {
+                binding.progress.setVisibility(View.GONE);
+                new AlertDialog.Builder(getContext())
+                        .setTitle("Success")
+                        .setMessage("Pass payment succeed")
+                        .setPositiveButton("Okay", (dialogInterface, i) -> {
+                            MainActivity.cartList.clear();
+                            MainActivity.setBadgeCount();
+                            getActivity().finish();
+                        }).show();
+            }
+
+            @Override
+            public void fail(String title, String msg) {
+                binding.progress.setVisibility(View.GONE);
+                W02Util.setDialog(getContext(), title, msg);
+            }
+        };
+
         return binding.getRoot();
     }
 
@@ -50,7 +82,7 @@ public class SummaryFragment extends Fragment {
                                 .commit();
                     })
                     .setNegativeButton("Pass payment (Debug)", (dialogInterface, i) -> {
-                        // TODO: buy instant
+                        FirebaseRepository.passPayment(Arrays.asList(productModels), network);
                     })
                     .show();
         });

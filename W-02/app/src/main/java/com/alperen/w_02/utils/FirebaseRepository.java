@@ -63,7 +63,6 @@ public class FirebaseRepository {
                 .get()
                 .addOnSuccessListener(dataSnapshot -> {
                     List<ProductModel> temp = new ArrayList<>();
-                    Log.d("dataSnapshot", dataSnapshot.getChildren().toString());
                     for (DataSnapshot item : dataSnapshot.getChildren()) {
                         temp.add(item.getValue(ProductModel.class));
                     }
@@ -74,11 +73,56 @@ public class FirebaseRepository {
     }
 
     public static void payWithCard(CardModel card, List<ProductModel> productModels, INetworkStatus network) {
+        network.processing();
         FirebaseDatabase.getInstance()
                 .getReference("payments")
                 .child(FirebaseAuth.getInstance().getUid())
                 .child(UUID.randomUUID().toString())
                 .setValue(new PaymentModel(card, productModels))
+                .addOnSuccessListener(runnable -> {
+                    network.success("success");
+                })
+                .addOnFailureListener(e -> {
+                    network.fail("Error", e.getMessage());
+                });
+    }
+
+    public static String getUserProfile() {
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
+        return "User id: " + uid + "\n" + "Email: " + email;
+    }
+
+    public static void signOut() {
+        FirebaseAuth.getInstance().signOut();
+    }
+
+    public static LiveData<String> getPastPayments() {
+        MutableLiveData<String> result = new MutableLiveData<>();
+
+        FirebaseDatabase.getInstance()
+                .getReference("payments")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .get()
+                .addOnSuccessListener(dataSnapshot -> {
+                    List<PaymentModel> temp = new ArrayList<>();
+                    for (DataSnapshot item : dataSnapshot.getChildren()) {
+                        temp.add(item.getValue(PaymentModel.class));
+                    }
+                    result.postValue(temp.toString());
+                });
+
+        return result;
+    }
+
+    public static void passPayment(List<ProductModel> list, INetworkStatus network) {
+        network.processing();
+        FirebaseDatabase.getInstance()
+                .getReference("payments")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .child(UUID.randomUUID().toString())
+                .setValue(new PaymentModel(null, list))
                 .addOnSuccessListener(runnable -> {
                     network.success("success");
                 })

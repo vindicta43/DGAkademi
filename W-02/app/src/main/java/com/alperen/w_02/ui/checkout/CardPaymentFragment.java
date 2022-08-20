@@ -36,11 +36,12 @@ public class CardPaymentFragment extends Fragment {
         network = new INetworkStatus() {
             @Override
             public void processing() {
-
+                binding.progress.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void success(String action) {
+                binding.progress.setVisibility(View.GONE);
                 new AlertDialog.Builder(getContext())
                         .setTitle("Success")
                         .setMessage("Shopping completed")
@@ -53,6 +54,7 @@ public class CardPaymentFragment extends Fragment {
 
             @Override
             public void fail(String title, String msg) {
+                binding.progress.setVisibility(View.GONE);
                 W02Util.setDialog(getContext(), title, msg);
             }
         };

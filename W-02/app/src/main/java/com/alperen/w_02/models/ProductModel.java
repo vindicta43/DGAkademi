@@ -69,4 +69,13 @@ public class ProductModel implements Parcelable {
             return new ProductModel[i];
         }
     };
+
+    @Override
+    public String toString() {
+        return "Id: " + id + "\n" +
+                "Name: " + name + "\n" +
+                "Price: " + price + "\n" +
+                "Weight: " + weight + "\n" +
+                "Count: " + count + "\n";
+    }
 }
