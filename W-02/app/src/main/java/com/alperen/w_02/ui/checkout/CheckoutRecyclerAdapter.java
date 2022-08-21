@@ -46,7 +46,7 @@ public class CheckoutRecyclerAdapter extends RecyclerView.Adapter<CheckoutRecycl
         holder.tvCheckoutProductName.setText(list.get(position).name);
         holder.tvCheckoutProductCount.setText(String.valueOf(list.get(position).count));
         holder.tvCheckoutProductWeight.setText(String.valueOf(list.get(position).weight));
-        holder.tvCheckoutProductPrice.setText("$"+String.valueOf(list.get(position).price));
+        holder.tvCheckoutProductPrice.setText(String.format("$%.2f", list.get(position).price));
     }
 
     @Override
