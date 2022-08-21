@@ -38,7 +38,7 @@
         android:padding="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/ivCartImage"
-        app:layout_constraintEnd_toStartOf="@id/currency"
+        app:layout_constraintEnd_toStartOf="@id/tvCartItemPrice"
         app:layout_constraintTop_toBottomOf="@id/tvCartItemName">
 
         <ImageButton
@@ -71,19 +71,6 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/currency"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_regular"
-        android:text="$"
-        android:textColor="@color/dark_brown"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@id/tvCartItemPrice"
-        app:layout_constraintEnd_toStartOf="@id/tvCartItemPrice"
-        app:layout_constraintTop_toTopOf="@id/tvCartItemPrice" />
-
-
-    <TextView
         android:id="@+id/tvCartItemPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -96,6 +83,5 @@
         app:layout_constraintBottom_toBottomOf="@id/layoutQuantity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/layoutQuantity" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

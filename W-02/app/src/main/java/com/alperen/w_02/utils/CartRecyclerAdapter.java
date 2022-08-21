@@ -70,7 +70,8 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
         holder.frequency = getFrequency(cartItems.get(position));
 
         holder.tvCartItemName.setText(cartItems.get(position).name);
-        holder.tvCartItemPrice.setText(String.valueOf(cartItems.get(position).price * holder.frequency));
+        double price = cartItems.get(position).price * holder.frequency;
+        holder.tvCartItemPrice.setText(String.format("$%.2f", price));
         holder.tvCartQuantity.setText(String.valueOf(holder.frequency));
 
         StorageReference reference = FirebaseStorage.getInstance().getReference(cartItems.get(position).image);
@@ -114,7 +115,8 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
     }
 
     private void updateViewHolder(ViewHolder holder, int position) {
-        holder.tvCartItemPrice.setText(String.valueOf(cartItems.get(position).price * holder.frequency));
+        double price = cartItems.get(position).price * holder.frequency;
+        holder.tvCartItemPrice.setText(String.format("$%.2f", price));
         holder.tvCartQuantity.setText(String.valueOf(holder.frequency));
         notifyDataSetChanged();
     }

@@ -100,7 +100,7 @@ public class SummaryFragment extends Fragment {
 
         binding.tvSummaryCount.setText(String.valueOf(summaryCount));
         binding.tvSummaryWeight.setText(String.valueOf(summaryWeight));
-        binding.tvSummaryPrice.setText("$" + String.valueOf(summaryPrice));
+        binding.tvSummaryPrice.setText(String.format("$%.2f", summaryPrice));
     }
 
     private void openPaymentPage() {
