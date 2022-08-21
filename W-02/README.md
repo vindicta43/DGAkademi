@@ -12,22 +12,32 @@ ile ödeme yapılır.
 
 ### Ekran Görüntüleri
 
-![Sign In](screenshots/sign_in.jpeg)
+#### Sign In
+<img src="screenshots/sign_in.jpeg" width="240" height="440" />
 
-![Sign Up](screenshots/sign_up.jpeg)
+#### Sign Up
+<img src="screenshots/sign_up.jpeg" width="240" height="440" />
 
-![Homepage](screenshots/homepage.jpeg)
+#### Homepage
+<img src="screenshots/homepage.jpeg" width="240" height="440" />
 
-![Cart Page](screenshots/cart.jpeg)
+#### Cart Page
+<img src="screenshots/cart.jpeg" width="240" height="440" />
 
-![Profile Page](screenshots/profile.jpeg)
+#### Profile Page
+<img src="screenshots/profile.jpeg" width="240" height="440" />
 
-![Checkout](screenshots/checkout.jpeg)
+#### Checkout
+<img src="screenshots/checkout.jpeg" width="240" height="440" />
 
-![Payment Methods](screenshots/payment_method.jpeg)
+#### Payment Methods
+<img src="screenshots/payment_method.jpeg" width="240" height="440" />
 
-![Payment with Card](screenshots/checkout_card.jpeg)
+#### Payment with Card
+<img src="screenshots/checkout_card.jpeg" width="240" height="440" />
 
-![Database](screenshots/db1.png)
+#### Database
+<img src="screenshots/db1.png" width="440" height="240" />
 
-![Database](screenshots/db2.png)
+#### Product in Database
+<img src="screenshots/db2.png" width="440" height="240" />
