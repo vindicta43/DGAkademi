@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homepageFragment"
+        android:icon="@drawable/ic_home"
+        android:title="" />
+
+    <item android:title=""
+        android:enabled="false"/>
+    <item android:title=""
+        android:enabled="false"/>
+    <item android:enabled="false"
+        android:title="" />
+
+    <!--    TODO: id    -->
+    <item
+        android:id="@+id/bookmarksFragment"
+        android:icon="@drawable/ic_bookmark"
+        android:title="" />
+
+</menu>
