@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.signup.SignUpFragment">
+
+        <ImageButton
+            android:id="@+id/ibBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="102dp"
+            android:src="@drawable/ic_dgpays_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Email"
+            android:textColor="@color/navy_blue"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/etEmail"
+            app:layout_constraintStart_toStartOf="@id/etEmail" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="34dp"
+            android:layout_marginTop="110dp"
+            android:background="@drawable/selector_edittext"
+            android:fontFamily="@font/poppins_bold"
+            android:hint="example@example.com"
+            android:inputType="textEmailAddress"
+            android:padding="8dp"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/ivLogo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Password"
+            android:textColor="@color/navy_blue"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/etPassword"
+            app:layout_constraintStart_toStartOf="@id/etPassword" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="34dp"
+            android:layout_marginTop="46dp"
+            android:background="@drawable/selector_edittext"
+            android:fontFamily="@font/poppins_bold"
+            android:hint="******"
+            android:inputType="textPassword"
+            android:padding="8dp"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/etEmail" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Verificate Password"
+            android:textColor="@color/navy_blue"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/etPasswordVerify"
+            app:layout_constraintStart_toStartOf="@id/etPasswordVerify" />
+
+        <EditText
+            android:id="@+id/etPasswordVerify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="34dp"
+            android:layout_marginTop="46dp"
+            android:background="@drawable/selector_edittext"
+            android:fontFamily="@font/poppins_bold"
+            android:hint="******"
+            android:inputType="textPassword"
+            android:padding="8dp"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/etPassword" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginHorizontal="139dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/selector_button"
+            android:backgroundTint="@null"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Sign Up"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/etPasswordVerify" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

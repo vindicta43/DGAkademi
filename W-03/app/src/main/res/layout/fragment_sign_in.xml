@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.signin.SignInFragment">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="v-1.0.0"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/ic_dgpays_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Email"
+            android:textColor="@color/navy_blue"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/etEmail"
+            app:layout_constraintStart_toStartOf="@id/etEmail" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="34dp"
+            android:layout_marginTop="110dp"
+            android:background="@drawable/selector_edittext"
+            android:fontFamily="@font/poppins_bold"
+            android:hint="example@example.com"
+            android:inputType="textEmailAddress"
+            android:padding="8dp"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/ivLogo"
+            tools:layout_editor_absoluteX="34dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Password"
+            android:textColor="@color/navy_blue"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/etPassword"
+            app:layout_constraintStart_toStartOf="@id/etPassword" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="34dp"
+            android:layout_marginTop="46dp"
+            android:background="@drawable/selector_edittext"
+            android:fontFamily="@font/poppins_bold"
+            android:hint="******"
+            android:inputType="textPassword"
+            android:padding="8dp"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/etEmail" />
+
+        <TextView
+            android:id="@+id/tvForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Forgot Password"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@id/etPassword"
+            app:layout_constraintTop_toBottomOf="@id/etPassword" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginHorizontal="139dp"
+            android:layout_marginTop="76dp"
+            android:background="@drawable/selector_button"
+            android:backgroundTint="@null"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Login"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/etPassword" />
+
+        <TextView
+            android:id="@+id/tvSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="You don't have an account?\nSignup"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
