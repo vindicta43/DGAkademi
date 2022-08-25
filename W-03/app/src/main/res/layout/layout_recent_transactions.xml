@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivTransactionImage"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/ic_taxi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTransactionName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Taxi Trips"
+        android:textColor="@color/navy_blue"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@id/tvTransactionDate"
+        app:layout_constraintStart_toEndOf="@id/ivTransactionImage"
+        app:layout_constraintTop_toTopOf="@id/ivTransactionImage" />
+
+    <TextView
+        android:id="@+id/tvTransactionDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="03 Aug 2022, 15:43"
+        android:textColor="@color/navy_blue_50"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/ivTransactionImage"
+        app:layout_constraintStart_toStartOf="@id/tvTransactionName"
+        app:layout_constraintTop_toBottomOf="@id/tvTransactionName" />
+
+    <TextView
+        android:id="@+id/tvTransactionPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="$56.50"
+        android:textColor="@color/navy_blue"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/dividerTop"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/navy_blue_20"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/dividerBottom"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/navy_blue_20"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

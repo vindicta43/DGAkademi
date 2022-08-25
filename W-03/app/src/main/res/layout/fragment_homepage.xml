@@ -1,106 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/page_bg_gray"
-        android:orientation="vertical"
+        android:fillViewport="true"
+        android:nestedScrollingEnabled="true"
         tools:context=".ui.homepage.HomepageFragment">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/toolbar"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/ivLogoMini"
-                android:layout_width="29dp"
-                android:layout_height="34dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="24dp"
-                android:src="@drawable/ic_dgpays_logo"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="9dp"
-                android:layout_marginTop="12dp"
-                android:fontFamily="@font/poppins_extra_bold"
-                android:text="Dgakademi"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toBottomOf="@id/ivLogoMini"
-                app:layout_constraintStart_toEndOf="@id/ivLogoMini"
-                app:layout_constraintTop_toTopOf="@id/ivLogoMini" />
-
-            <ImageButton
-                android:id="@+id/ibMenu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="39dp"
-                android:layout_marginEnd="20dp"
-                android:background="@android:color/transparent"
-                android:src="@drawable/ic_menu"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="19dp"
-            android:background="@drawable/selector_dashboard"
-            app:layout_constraintTop_toBottomOf="@id/toolbar">
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="23dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/poppins_bold"
-                android:text="Dashboard"
-                android:textColor="@color/navy_blue"
-                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <!--    Tasarımda 37dp margin var   -->
-            <!--    33 margin layout 4 margin item    -->
-            <!--    yapisik goruntu ortadan kalkti     -->
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/vpCard"
-                android:layout_width="314dp"
-                android:layout_height="202dp"
-                android:layout_marginStart="33dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginEnd="33dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/ivLogoMini"
+                    android:layout_width="29dp"
+                    android:layout_height="34dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="24dp"
+                    android:src="@drawable/ic_dgpays_logo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="23dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/poppins_bold"
-                android:text="Upcoming payments"
-                android:textColor="@color/navy_blue"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vpCard" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/poppins_extra_bold"
+                    android:text="Dgakademi"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@id/ivLogoMini"
+                    app:layout_constraintStart_toEndOf="@id/ivLogoMini"
+                    app:layout_constraintTop_toTopOf="@id/ivLogoMini" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageButton
+                    android:id="@+id/ibMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="39dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_menu"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="19dp"
+                android:background="@drawable/selector_dashboard"
+                app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Dashboard"
+                    android:textColor="@color/navy_blue"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--    Tasarımda 37dp margin var   -->
+                <!--    33 margin layout 4 margin item    -->
+                <!--    yapisik goruntu ortadan kalkti     -->
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vpCard"
+                    android:layout_width="314dp"
+                    android:layout_height="202dp"
+                    android:layout_marginStart="33dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginEnd="33dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvTitleUpcoming"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Upcoming payments"
+                    android:textColor="@color/navy_blue"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vpCard" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvUpcomingPayments"
+                    android:layout_width="match_parent"
+                    android:layout_height="182dp"
+                    android:layout_marginHorizontal="22dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/tvTitleUpcoming" />
+
+                <TextView
+                    android:id="@+id/tvTitleRecent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Recent transactions"
+                    android:textColor="@color/navy_blue"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/rvUpcomingPayments"
+                    app:layout_constraintTop_toBottomOf="@id/rvUpcomingPayments" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvRecentTransactions"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:layout_marginHorizontal="22dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/tvTitleRecent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </layout>

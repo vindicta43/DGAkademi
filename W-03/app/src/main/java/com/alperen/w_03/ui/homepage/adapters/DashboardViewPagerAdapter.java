@@ -16,10 +16,10 @@ import java.util.List;
 /**
  * Created by Alperen on 24.08.2022.
  */
-public class HomepageViewPagerAdapter extends RecyclerView.Adapter<HomepageViewPagerAdapter.ViewHolder> {
+public class DashboardViewPagerAdapter extends RecyclerView.Adapter<DashboardViewPagerAdapter.ViewHolder> {
     private List<CardModel> list;
 
-    public HomepageViewPagerAdapter(List<CardModel> list) {
+    public DashboardViewPagerAdapter(List<CardModel> list) {
         this.list = list;
     }
 
