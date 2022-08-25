@@ -59,7 +59,7 @@ public class SignUpFragment extends Fragment {
 
             if (!email.isEmpty() && !password.isEmpty() && !passwordVerify.isEmpty()) {
                 if (password.equals(passwordVerify)) {
-                    FirebaseRepository.signUp(email, password, actions);
+                    FirebaseRepository.signUp(email.trim(), password, actions);
                 } else {
                     W03Util.setEditTextError(getResources().getString(R.string.passwords_dont_match), binding.etPassword);
                     W03Util.setEditTextError(getResources().getString(R.string.passwords_dont_match), binding.etPasswordVerify);

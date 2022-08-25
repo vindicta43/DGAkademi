@@ -10,7 +10,7 @@
         android:layout_height="43dp"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
-        android:src="@drawable/ic_taxi"
+        android:src="@drawable/ic_coins_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

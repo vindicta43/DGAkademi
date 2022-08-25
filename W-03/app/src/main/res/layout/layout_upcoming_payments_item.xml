@@ -24,10 +24,11 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id="@+id/ivPayment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="10dp"
-                android:src="@drawable/ic_armchair" />
+                android:src="@drawable/ic_coins_white" />
 
         </androidx.cardview.widget.CardView>
 

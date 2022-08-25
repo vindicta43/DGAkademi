@@ -3,14 +3,18 @@ package com.alperen.w_03.ui.homepage.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alperen.w_03.R;
 import com.alperen.w_03.model.UpcomingPaymentsModel;
+import com.alperen.w_03.utils.UpcomingPaymentDialogFragment;
 
 import java.util.List;
 
@@ -45,7 +49,7 @@ public class UpcomingPaymentsAdapter extends RecyclerView.Adapter<UpcomingPaymen
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tvPaymentName.setText(list.get(position).getPaymentName());
         holder.tvPaymentType.setText(list.get(position).getPaymentType());
-        holder.tvPaymentPrice.setText(list.get(position).getPaymentPrice());
+        holder.tvPaymentPrice.setText("$" + list.get(position).getPaymentPriceFormatted());
 
         // If position at the last item, give margin for equal spacing
         if (position != list.size() - 1) {
@@ -56,6 +60,12 @@ public class UpcomingPaymentsAdapter extends RecyclerView.Adapter<UpcomingPaymen
             params.setMarginEnd(32);
             holder.itemView.setLayoutParams(params);
         }
+
+        holder.itemView.setOnClickListener(view -> {
+            DialogFragment dialogFragment = new UpcomingPaymentDialogFragment(list.get(position));
+            dialogFragment.setCancelable(false);
+            dialogFragment.show(((AppCompatActivity) holder.itemView.getContext()).getSupportFragmentManager(), null);
+        });
     }
 
     @Override

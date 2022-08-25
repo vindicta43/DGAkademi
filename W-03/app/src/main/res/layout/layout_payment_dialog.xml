@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="24dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/paymentLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/page_bg_gray"
+        app:cardCornerRadius="24dp"
+        app:layout_constraintBottom_toTopOf="@id/ibCancelDialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ivPaymentDialogLayout"
+                android:layout_width="67dp"
+                android:layout_height="67dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="211dp"
+                android:backgroundTint="@color/navy_blue"
+                app:cardCornerRadius="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivDialog"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_coins_white" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tvPaymentDialogName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Freelance"
+                android:textColor="@color/navy_blue"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/tvPaymentDialogType"
+                app:layout_constraintStart_toEndOf="@id/ivPaymentDialogLayout"
+                app:layout_constraintTop_toTopOf="@+id/ivPaymentDialogLayout" />
+
+            <TextView
+                android:id="@+id/tvPaymentDialogType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Unregular payment"
+                android:textColor="@color/navy_blue_50"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivPaymentDialogLayout"
+                app:layout_constraintStart_toStartOf="@id/tvPaymentDialogName"
+                app:layout_constraintTop_toBottomOf="@id/tvPaymentDialogName" />
+
+            <TextView
+                android:id="@+id/tvDialogSender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="34dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Sender"
+                android:textColor="@color/navy_blue"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivPaymentDialogLayout" />
+
+            <EditText
+                android:id="@+id/etDialogSenderName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/selector_edittext"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:fontFamily="@font/poppins_bold"
+                android:hint="Sender Name"
+                android:padding="8dp"
+                android:textColor="@color/navy_blue"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDialogSender" />
+
+            <TextView
+                android:id="@+id/tvDialogReceiveDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Receive Date"
+                android:textColor="@color/navy_blue"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etDialogSenderName" />
+
+            <EditText
+                android:id="@+id/etDialogReceiveDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/selector_edittext"
+                android:enabled="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:fontFamily="@font/poppins_bold"
+                android:hint="01/01/200"
+                android:padding="8dp"
+                android:textColor="@color/navy_blue"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDialogReceiveDate" />
+
+            <TextView
+                android:id="@+id/tvDialogPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="$1,500"
+                android:textColor="@color/navy_blue"
+                android:textSize="36sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etDialogReceiveDate" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageButton
+        android:id="@+id/ibCancelDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@android:color/transparent"
+        android:src="@drawable/ic_circle_cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/paymentLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

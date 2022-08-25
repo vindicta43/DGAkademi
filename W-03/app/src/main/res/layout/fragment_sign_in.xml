@@ -6,8 +6,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
         android:background="@color/page_bg_gray"
+        android:fillViewport="true"
         tools:context=".ui.signin.SignInFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -58,6 +58,7 @@
                 android:hint="example@example.com"
                 android:inputType="textEmailAddress"
                 android:padding="8dp"
+                android:textCursorDrawable="@null"
                 android:textSize="16sp"
                 app:layout_constraintTop_toBottomOf="@id/ivLogo"
                 tools:layout_editor_absoluteX="34dp" />
@@ -84,6 +85,7 @@
                 android:hint="******"
                 android:inputType="textPassword"
                 android:padding="8dp"
+                android:textCursorDrawable="@null"
                 android:textSize="16sp"
                 app:layout_constraintTop_toBottomOf="@id/etEmail" />
 

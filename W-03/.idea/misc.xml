@@ -4,10 +4,20 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/drawable/anim_loading.xml" value="0.1765" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/drawable/ic_armchair_blue.xml" value="0.1995" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/drawable/ic_armchair_white.xml" value="0.1995" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/drawable/ic_cancel.xml" value="0.1995" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/drawable/ic_card_background.xml" value="0.1995" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/drawable/ic_card_chip.xml" value="0.1" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/drawable/ic_circle_button_cancel.xml" value="0.1985" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/drawable/ic_coins_blue.xml" value="0.1995" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/drawable/ic_coins_white.xml" value="0.1995" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/drawable/ic_debug.xml" value="0.1995" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/drawable/ic_dgpays_logo.xml" value="0.1995" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/drawable/ic_menu.xml" value="0.1995" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/drawable/ic_menu_statistics.xml" value="0.1995" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/drawable/ic_taxi_blue.xml" value="0.1995" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/drawable/ic_taxi_white.xml" value="0.1995" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/drawable/selector_button.xml" value="0.1985" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/drawable/selector_dashboard.xml" value="0.1985" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/drawable/selector_edittext.xml" value="0.1985" />
@@ -16,11 +26,12 @@
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/layout/fragment_forgot_password.xml" value="0.16" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/layout/fragment_homepage.xml" value="0.25" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/layout/fragment_login.xml" value="0.25" />
-        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/layout/fragment_sign_in.xml" value="0.1816123188405797" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/layout/fragment_sign_in.xml" value="0.22" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/layout/fragment_sign_up.xml" value="0.16" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/layout/fragment_splash.xml" value="0.17760416666666667" />
-        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/layout/layout_card_item.xml" value="0.2" />
-        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/layout/layout_menu.xml" value="0.2" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/layout/layout_card_item.xml" value="0.5" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/layout/layout_menu.xml" value="0.33" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/layout/layout_payment_dialog.xml" value="0.22" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/layout/layout_recent_transactions.xml" value="0.5186721991701245" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/layout/layout_upcoming_payments_item.xml" value="0.25" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/W-03/app/src/main/res/layout/loading.xml" value="0.19166666666666668" />

@@ -3,6 +3,7 @@ package com.alperen.w_03.ui.homepage.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -48,7 +49,7 @@ public class RecentTransactionsAdapter extends RecyclerView.Adapter<RecentTransa
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tvTransactionName.setText(list.get(position).getTransactionName());
         holder.tvTransactionDate.setText(list.get(position).getTransactionDate());
-        holder.tvTransactionPrice.setText(list.get(position).getTransactionPrice());
+        holder.tvTransactionPrice.setText("$" + list.get(position).getTransactionPriceFormatted());
 
         // Clean top divider for first item
         if (position == 0)

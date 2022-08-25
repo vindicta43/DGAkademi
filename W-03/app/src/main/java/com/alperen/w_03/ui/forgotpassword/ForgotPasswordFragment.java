@@ -58,7 +58,7 @@ public class ForgotPasswordFragment extends Fragment {
             String email = binding.etEmail.getText().toString();
 
             if (!email.isEmpty()) {
-                FirebaseRepository.sendResetEmail(email, actions);
+                FirebaseRepository.sendResetEmail(email.trim(), actions);
             } else {
                 W03Util.setEditTextError(getResources().getString(R.string.field_required), binding.etEmail);
             }

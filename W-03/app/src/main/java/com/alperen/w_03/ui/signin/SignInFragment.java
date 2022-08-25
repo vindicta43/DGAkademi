@@ -63,7 +63,7 @@ public class SignInFragment extends Fragment {
             String password = binding.etPassword.getText().toString();
 
             if (!email.isEmpty() && !password.isEmpty()) {
-                FirebaseRepository.signIn(email, password, actions);
+                FirebaseRepository.signIn(email.trim(), password, actions);
             } else {
                 if (email.isEmpty())
                     W03Util.setEditTextError(getResources().getString(R.string.field_required), binding.etEmail);

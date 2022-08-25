@@ -1,33 +1,44 @@
 package com.alperen.w_03.ui.homepage;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.alperen.w_03.R;
 import com.alperen.w_03.databinding.FragmentHomepageBinding;
-import com.alperen.w_03.model.CardModel;
-import com.alperen.w_03.model.RecentTransactionsModel;
-import com.alperen.w_03.model.UpcomingPaymentsModel;
+import com.alperen.w_03.repository.locale.W03Dao;
+import com.alperen.w_03.repository.locale.W03Database;
+import com.alperen.w_03.repository.network.FirebaseRepository;
 import com.alperen.w_03.ui.homepage.adapters.DashboardViewPagerAdapter;
 import com.alperen.w_03.ui.homepage.adapters.RecentTransactionsAdapter;
 import com.alperen.w_03.ui.homepage.adapters.UpcomingPaymentsAdapter;
+import com.alperen.w_03.utils.W03Util;
 import com.github.techisfun.android.topsheet.TopSheetDialog;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class HomepageFragment extends Fragment {
     FragmentHomepageBinding binding;
+    W03Dao dao;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomepageBinding.inflate(getLayoutInflater());
+        dao = W03Database.getInstance(getContext()).w03Dao();
+
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.post(() -> {
+            W03Util.fillDb(getContext());
+            initRecyclerViews();
+        });
 
         return binding.getRoot();
     }
@@ -35,45 +46,89 @@ public class HomepageFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        binding.ibMenu.setOnClickListener(this::createMenu);
+        initRecyclerViews();
+    }
 
-        binding.ibMenu.setOnClickListener(view -> {
-            TopSheetDialog dialog = new TopSheetDialog(getContext());
-            dialog.setContentView(R.layout.layout_menu);
-            dialog.show();
+    private void createMenu(View v) {
+        TopSheetDialog dialog = new TopSheetDialog(v.getContext());
+        dialog.setContentView(R.layout.layout_menu);
+
+        ImageButton ibCancel = dialog.findViewById(R.id.ibCancel);
+        LinearLayout menuItemOverview = dialog.findViewById(R.id.menuItemOverview);
+        LinearLayout menuItemMessages = dialog.findViewById(R.id.menuItemMessages);
+        LinearLayout menuItemCommunity = dialog.findViewById(R.id.menuItemCommunity);
+        LinearLayout menuItemPayments = dialog.findViewById(R.id.menuItemPayments);
+        LinearLayout menuItemStatistics = dialog.findViewById(R.id.menuItemStatistics);
+        LinearLayout menuItemReferrals = dialog.findViewById(R.id.menuItemReferrals);
+        LinearLayout menuItemFillDb = dialog.findViewById(R.id.menuItemFillDb);
+        LinearLayout menuItemCleanDb = dialog.findViewById(R.id.menuItemCleanDb);
+        LinearLayout menuItemLogout = dialog.findViewById(R.id.menuItemLogout);
+
+        ibCancel.setOnClickListener(view -> {
+            dialog.dismiss();
         });
 
-        List<CardModel> list = new ArrayList<>();
-        list.add(new CardModel("123", "a"));
-        list.add(new CardModel("456", "s"));
-        list.add(new CardModel("789", "d"));
+        menuItemOverview.setOnClickListener(view -> {
+            Toast.makeText(v.getContext(), "Overview clicked", Toast.LENGTH_SHORT).show();
+        });
 
-        DashboardViewPagerAdapter adapter = new DashboardViewPagerAdapter(list);
+        menuItemMessages.setOnClickListener(view -> {
+            Toast.makeText(v.getContext(), "Messages clicked", Toast.LENGTH_SHORT).show();
+        });
+
+        menuItemCommunity.setOnClickListener(view -> {
+            Toast.makeText(v.getContext(), "Community clicked", Toast.LENGTH_SHORT).show();
+        });
+
+        menuItemPayments.setOnClickListener(view -> {
+            Toast.makeText(v.getContext(), "Payments clicked", Toast.LENGTH_SHORT).show();
+        });
+
+        menuItemStatistics.setOnClickListener(view -> {
+            Toast.makeText(v.getContext(), "Statistics clicked", Toast.LENGTH_SHORT).show();
+        });
+
+        menuItemReferrals.setOnClickListener(view -> {
+            Toast.makeText(v.getContext(), "Referrals clicked", Toast.LENGTH_SHORT).show();
+        });
+
+        menuItemFillDb.setOnClickListener(view -> {
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.post(() -> {
+                W03Util.fillDb(v.getContext());
+                Toast.makeText(v.getContext(), "Database filled", Toast.LENGTH_SHORT).show();
+                initRecyclerViews();
+            });
+        });
+
+        menuItemCleanDb.setOnClickListener(view -> {
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.post(() -> {
+                W03Util.cleanDb(v.getContext());
+                Toast.makeText(v.getContext(), "Database cleaned", Toast.LENGTH_SHORT).show();
+                initRecyclerViews();
+            });
+        });
+
+        menuItemLogout.setOnClickListener(view -> {
+            dialog.dismiss();
+            FirebaseRepository.signOut();
+            Navigation.findNavController(v).navigate(R.id.action_homepageFragment_to_signInFragment);
+        });
+
+        dialog.show();
+    }
+
+    private void initRecyclerViews() {
+        DashboardViewPagerAdapter adapter = new DashboardViewPagerAdapter(dao.getCards());
         binding.vpCard.setAdapter(adapter);
 
-
-        List<UpcomingPaymentsModel> list2 = new ArrayList<>();
-        list2.add(new UpcomingPaymentsModel("tax", "goverment", "201"));
-        list2.add(new UpcomingPaymentsModel("tax2", "goverment2", "202"));
-        list2.add(new UpcomingPaymentsModel("tax3", "goverment3", "203"));
-        list2.add(new UpcomingPaymentsModel("tax4", "goverment4", "204"));
-
-        UpcomingPaymentsAdapter adapter2 = new UpcomingPaymentsAdapter(list2);
+        UpcomingPaymentsAdapter adapter2 = new UpcomingPaymentsAdapter(dao.getUpcomingPayments());
         binding.rvUpcomingPayments.setAdapter(adapter2);
         binding.rvUpcomingPayments.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
-
-        List<RecentTransactionsModel> list3 = new ArrayList<>();
-        list3.add(new RecentTransactionsModel("taxi1", "03", "$50"));
-        list3.add(new RecentTransactionsModel("taxi2", "04", "$51"));
-        list3.add(new RecentTransactionsModel("taxi3", "05", "$52"));
-        list3.add(new RecentTransactionsModel("taxi4", "06", "$53"));
-        list3.add(new RecentTransactionsModel("taxi5", "07", "$54"));
-        list3.add(new RecentTransactionsModel("taxi6", "08", "$55"));
-
-        list3.add(new RecentTransactionsModel("taxi6", "08", "$55"));
-        list3.add(new RecentTransactionsModel("taxi6", "08", "$55"));
-
-        RecentTransactionsAdapter adapter3 = new RecentTransactionsAdapter(list3);
+        RecentTransactionsAdapter adapter3 = new RecentTransactionsAdapter(dao.getRecentTransactions());
         binding.rvRecentTransactions.setAdapter(adapter3);
         binding.rvRecentTransactions.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
     }

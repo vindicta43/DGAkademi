@@ -39,4 +39,8 @@ public class FirebaseRepository {
                     actions.fail("Error", e.getMessage());
                 });
     }
+
+    public static void signOut() {
+        FirebaseAuth.getInstance().signOut();
+    }
 }
