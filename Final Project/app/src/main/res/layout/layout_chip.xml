@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <com.google.android.material.chip.Chip xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/chip_bg"
+        android:fontFamily="@font/mulish_bold"
+        android:paddingVertical="4dp"
+        android:paddingHorizontal="12sp"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:text="test"
+        android:textColor="@color/chip_text">
+
+    </com.google.android.material.chip.Chip>
+
+</layout>
