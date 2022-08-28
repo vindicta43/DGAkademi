@@ -16,7 +16,7 @@ Figma linki
 
 #### Database
 - User id altında movie id ler saklanır.
-<img src="screenshots/forgot_password.jpeg" width="440" height="240" />
+<img src="screenshots/database.jpeg" width="440" height="240" />
 
 #### Sign In ve Sign Up Sayfası
 - Email ve parola alanları doldurulduktan sonra sign in veya sign up olunur.
