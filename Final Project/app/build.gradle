@@ -48,6 +48,7 @@ dependencies {
     // Firebase
     implementation platform('com.google.firebase:firebase-bom:30.3.2')
     implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-database'
 
     // Navigation Component
     def nav_version = "2.5.1"

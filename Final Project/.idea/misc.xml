@@ -9,13 +9,17 @@
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/drawable/ic_home.xml" value="0.19" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/drawable/ic_star.xml" value="0.1995" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/drawable/ic_vote.xml" value="0.177" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/drawable/selector_button.xml" value="0.177" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/drawable/selector_chip.xml" value="0.1985" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/drawable/selector_edittext.xml" value="0.177" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/drawable/selector_movie_detail_content.xml" value="0.177" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/activity_auth.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/activity_movie_details.xml" value="0.14" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/fragment_bookmarks.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/fragment_forgot_password.xml" value="0.2" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/fragment_homepage.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/fragment_sign_in.xml" value="0.25" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/layout_app_bar.xml" value="0.190625" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/layout_appbar_content.xml" value="0.190625" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/layout_cast_item.xml" value="0.19166666666666668" />

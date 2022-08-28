@@ -1,13 +1,15 @@
 package com.alperen.finalproject.utils.network;
 
+import androidx.lifecycle.LiveData;
+
 import com.alperen.finalproject.models.CastModel;
 import com.alperen.finalproject.models.GenresModel;
 import com.alperen.finalproject.models.MovieDetailModel;
 import com.alperen.finalproject.models.PaginationModel;
 import com.alperen.finalproject.utils.Constants;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -92,5 +94,46 @@ public class AppRepository {
                 status.fail("Failed", t.getMessage());
             }
         });
+    }
+
+    public static LiveData<Integer> getUserBookmarks() {
+        // TODO: yapılacak
+        return null;
+    }
+
+    public static void signIn(String email, String password, IAuthStatus status) {
+        status.processing();
+        FirebaseAuth.getInstance()
+                .signInWithEmailAndPassword(email, password)
+                .addOnSuccessListener(runnable -> {
+                    status.success("signIn", "");
+                })
+                .addOnFailureListener(e -> {
+                    status.fail("Error", e.getMessage());
+                });
+    }
+
+    public static void signUp(String email, String password, IAuthStatus status) {
+        status.processing();
+        FirebaseAuth.getInstance()
+                .createUserWithEmailAndPassword(email, password)
+                .addOnSuccessListener(runnable -> {
+                    status.success("signUp", "Signed up successfully");
+                })
+                .addOnFailureListener(e -> {
+                    status.fail("Error", e.getMessage());
+                });
+    }
+
+    public static void sendResetEmail(String email, IAuthStatus status) {
+        status.processing();
+        FirebaseAuth.getInstance()
+                .sendPasswordResetEmail(email)
+                .addOnSuccessListener(runnable -> {
+                    status.success("resetEmail", "A reset email has been sent");
+                })
+                .addOnFailureListener(e -> {
+                    status.fail("Error", e.getMessage());
+                });
     }
 }
