@@ -53,6 +53,17 @@ public class MovieModel {
     @Expose
     private Integer voteCount;
 
+    public MovieModel() {}
+
+    public MovieModel(Integer id, List<Integer> genreIds, String posterPath, String title, Double voteAverage, Integer voteCount) {
+        this.id = id;
+        this.genreIds = genreIds;
+        this.posterPath = posterPath;
+        this.title = title;
+        this.voteAverage = voteAverage;
+        this.voteCount = voteCount;
+    }
+
     public Boolean getAdult() {
         return adult;
     }

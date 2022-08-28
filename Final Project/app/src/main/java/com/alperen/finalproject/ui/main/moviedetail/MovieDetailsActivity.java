@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alperen.finalproject.R;
 import com.alperen.finalproject.databinding.ActivityMovieDetailsBinding;
 import com.alperen.finalproject.databinding.LayoutChipBinding;
 import com.alperen.finalproject.models.CastModel;
@@ -71,6 +73,14 @@ public class MovieDetailsActivity extends AppCompatActivity {
     private void initPage() {
         MovieDetailAdapter adapter = new MovieDetailAdapter(movieCast);
 
+        AppRepository.getUserBookmarks().observe(this, integers -> {
+            if (integers.contains(movieDetail.get(0).getId())) {
+                binding.content.ibMovieDetailBookmark.setImageResource(R.drawable.ic_bookmark);
+            } else {
+                binding.content.ibMovieDetailBookmark.setImageResource(R.drawable.ic_bookmark_border);
+            }
+        });
+
         String imageUrl = Constants.POSTER_PATH + movieDetail.get(0).getBackdropPath();
         Glide.with(this).load(imageUrl).into(binding.ivMovieDetail);
 
@@ -95,7 +105,13 @@ public class MovieDetailsActivity extends AppCompatActivity {
         });
 
         binding.content.ibMovieDetailBookmark.setOnClickListener(view -> {
-
+            AppRepository.addUserBookmarks(movieDetail.get(0)).observe(this, state -> {
+                if (state.equals("add")) {
+                    binding.content.ibMovieDetailBookmark.setImageResource(R.drawable.ic_bookmark);
+                } else {
+                    binding.content.ibMovieDetailBookmark.setImageResource(R.drawable.ic_bookmark_border);
+                }
+            });
         });
     }
 

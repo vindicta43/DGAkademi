@@ -1,6 +1,7 @@
 package com.alperen.finalproject.utils.network;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.alperen.finalproject.models.CastModel;
 import com.alperen.finalproject.models.GenresModel;
@@ -8,6 +9,8 @@ import com.alperen.finalproject.models.MovieDetailModel;
 import com.alperen.finalproject.models.PaginationModel;
 import com.alperen.finalproject.utils.Constants;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,9 +99,86 @@ public class AppRepository {
         });
     }
 
-    public static LiveData<Integer> getUserBookmarks() {
-        // TODO: yapılacak
-        return null;
+    public static void getBookmarkMovies(List<Integer> bookmarkIds, IQueryStatus status) {
+        status.processing();
+        List<MovieDetailModel> movieList = new ArrayList<>();
+
+        for (int id : bookmarkIds) {
+            movieService.getMovieDetails(id, Constants.API_KEY).enqueue(new Callback<MovieDetailModel>() {
+                @Override
+                public void onResponse(Call<MovieDetailModel> call, Response<MovieDetailModel> response) {
+                    if (response.isSuccessful()) {
+                        movieList.add(response.body());
+                        status.success(movieList);
+                    } else {
+                        status.fail("Failed", response.errorBody().toString());
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<MovieDetailModel> call, Throwable t) {
+                    status.fail("Failed", t.getMessage());
+                }
+            });
+        }
+    }
+
+    public static LiveData<List<Integer>> getUserBookmarks() {
+        MutableLiveData<List<Integer>> result = new MutableLiveData<>();
+
+        FirebaseDatabase.getInstance()
+                .getReference("bookmarks")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .get()
+                .addOnSuccessListener(dataSnapshot -> {
+                    if (dataSnapshot != null) {
+                        List<Integer> bookmarkList = new ArrayList<>();
+                        for (DataSnapshot item : dataSnapshot.getChildren()) {
+                            bookmarkList.add(item.getValue(Integer.class));
+                        }
+                        result.postValue(bookmarkList);
+                    } else {
+                        result.postValue(null);
+                    }
+                });
+
+        return result;
+    }
+
+    public static LiveData<String> addUserBookmarks(MovieDetailModel movieDetailModel) {
+        MutableLiveData<String> result = new MutableLiveData<>();
+
+        getUserBookmarks().observeForever(userBookmarks -> {
+            // If item in user favorites, it comes true
+            boolean flag = false;
+
+            // Movie in user bookmarks, remove it
+            if (userBookmarks.contains(movieDetailModel.getId())) {
+                userBookmarks.remove(movieDetailModel.getId());
+
+                FirebaseDatabase.getInstance()
+                        .getReference("bookmarks")
+                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                        .setValue(userBookmarks)
+                        .addOnSuccessListener(runnable -> {
+                            result.postValue("remove");
+                        });
+            }
+            // Movie isn't it user bookmarks, add it
+            else {
+                userBookmarks.add(movieDetailModel.getId());
+
+                FirebaseDatabase.getInstance()
+                        .getReference("bookmarks")
+                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                        .setValue(userBookmarks)
+                        .addOnSuccessListener(runnable -> {
+                            result.postValue("add");
+                        });
+            }
+        });
+
+        return result;
     }
 
     public static void signIn(String email, String password, IAuthStatus status) {

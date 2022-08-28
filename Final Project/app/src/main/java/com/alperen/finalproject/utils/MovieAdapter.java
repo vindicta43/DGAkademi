@@ -62,7 +62,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
         holder.tvMovieName.setText(list.get(position).getTitle());
         holder.tvMoviePoint.setText(list.get(position).getVoteAverage() + "/10");
-        // TODO: daha sonra bak
         holder.tvMovieVote.setText(list.get(position).getVoteCount().toString());
 
         holder.movieChipGroup.removeAllViews();
