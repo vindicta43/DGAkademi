@@ -1,6 +1,5 @@
 package com.alperen.finalproject.utils;
 
-import com.alperen.finalproject.models.GenreModel;
 import com.alperen.finalproject.utils.network.MovieRepository;
 import com.alperen.finalproject.utils.network.MovieService;
 

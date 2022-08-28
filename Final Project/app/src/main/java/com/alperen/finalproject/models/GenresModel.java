@@ -6,8 +6,9 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 /**
-* Created by Alperen on 27.08.2022.
-*/public class GenreModel {
+ * Created by Alperen on 27.08.2022.
+ */
+public class GenresModel {
 
     @SerializedName("genres")
     @Expose
@@ -22,6 +23,7 @@ import java.util.List;
     }
 
     public static class Genre {
+
         @SerializedName("id")
         @Expose
         private Integer id;
@@ -44,5 +46,7 @@ import java.util.List;
         public void setName(String name) {
             this.name = name;
         }
+
     }
+
 }

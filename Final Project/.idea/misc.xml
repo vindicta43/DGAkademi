@@ -5,20 +5,29 @@
       <map>
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/drawable/bottom_nav_color_selector.xml" value="0.19" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/drawable/ic_bookmark.xml" value="0.19" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/drawable/ic_clock.xml" value="0.1995" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/drawable/ic_home.xml" value="0.19" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/drawable/ic_star.xml" value="0.1995" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/drawable/ic_vote.xml" value="0.177" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/drawable/selector_chip.xml" value="0.1985" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/drawable/selector_movie_detail_content.xml" value="0.177" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/activity_auth.xml" value="0.19166666666666668" />
-        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/activity_movie_details.xml" value="0.14" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/fragment_bookmarks.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/fragment_homepage.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/layout_app_bar.xml" value="0.190625" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/layout_appbar_content.xml" value="0.190625" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/layout_cast_item.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/layout_chip.xml" value="0.9" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/layout_drawer.xml" value="0.190625" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/layout_drawer_header.xml" value="0.33" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/layout_homepage_placeholder.xml" value="0.33" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/layout_main_appbar.xml" value="0.190625" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/layout_main_content.xml" value="0.19166666666666668" />
-        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/layout_rw_home_single_item.xml" value="0.5" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/layout_movie_detail_content.xml" value="0.25" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/layout_rw_cast_single_item.xml" value="0.25" />
+        <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/layout/layout_rw_home_single_item.xml" value="0.67" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/menu/menu_bottom.xml" value="0.14375" />
         <entry key="..\:/Users/forei/Desktop/dgpays staj/DGAkademi/Final Project/app/src/main/res/menu/menu_navigation_drawer.xml" value="0.25" />
       </map>

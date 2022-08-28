@@ -21,7 +21,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends FragmentActivity {
-    ActivityMainBinding binding;
+    public static ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,5 @@ public class MainActivity extends FragmentActivity {
         NavController navController = Navigation.findNavController(this, R.id.fragmentContainerMain);
         BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
         NavigationUI.setupWithNavController(bottomNav, navController);
-
     }
 }

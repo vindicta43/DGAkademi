@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:elevation="4dp">
@@ -12,7 +11,7 @@
         android:layout_marginBottom="16dp">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/layoutIvMovieImage"
+            android:id="@+id/layoutIvMovieImageHolder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:cardCornerRadius="5dp"
@@ -21,61 +20,60 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/ivMovieImage"
+                android:id="@+id/ivMovieImageHolder"
                 android:layout_width="85dp"
                 android:layout_height="120dp"
+                android:background="@color/shimmer_gray"
                 android:scaleType="fitXY" />
 
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/tvMovieName"
+            android:id="@+id/tvMovieNameHolder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
-            android:fontFamily="@font/mulish_bold"
-            android:text="Movie name"
-            android:textColor="@color/black"
+            android:background="@color/shimmer_gray"
+            android:text="                           "
             android:textSize="14sp"
-            app:layout_constraintStart_toEndOf="@id/layoutIvMovieImage"
+            app:layout_constraintStart_toEndOf="@id/layoutIvMovieImageHolder"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/iconStar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/iconStarHolder"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginTop="12dp"
-            android:src="@drawable/ic_star"
-            app:layout_constraintStart_toStartOf="@id/tvMovieName"
-            app:layout_constraintTop_toBottomOf="@id/tvMovieName" />
+            android:background="@color/shimmer_gray"
+            app:layout_constraintStart_toStartOf="@id/tvMovieNameHolder"
+            app:layout_constraintTop_toBottomOf="@id/tvMovieNameHolder" />
 
         <TextView
-            android:id="@+id/tvMoviePoint"
+            android:id="@+id/tvMoviePointHolder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:fontFamily="@font/mulish_regular"
-            android:text="6.4/10"
-            android:textColor="@color/gray_darker"
-            app:layout_constraintBottom_toBottomOf="@id/iconStar"
-            app:layout_constraintStart_toEndOf="@id/iconStar"
-            app:layout_constraintTop_toTopOf="@id/iconStar" />
+            android:background="@color/shimmer_gray"
+            android:text="              "
+            app:layout_constraintBottom_toBottomOf="@id/iconStarHolder"
+            app:layout_constraintStart_toEndOf="@id/iconStarHolder"
+            app:layout_constraintTop_toTopOf="@id/iconStarHolder" />
 
         <HorizontalScrollView
-            android:id="@+id/scrollChipGroup"
+            android:id="@+id/scrollChipGroupHolder"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@id/iconVote"
+            app:layout_constraintBottom_toTopOf="@id/iconVoteHolder"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/iconStar"
-            app:layout_constraintTop_toBottomOf="@id/iconStar">
+            app:layout_constraintStart_toStartOf="@id/iconStarHolder"
+            app:layout_constraintTop_toBottomOf="@id/iconStarHolder">
 
             <com.google.android.material.chip.ChipGroup
-                android:id="@+id/movieChipGroup"
+                android:id="@+id/movieChipGroupHolder"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:chipSpacingHorizontal="8dp"
@@ -86,26 +84,24 @@
         </HorizontalScrollView>
 
         <ImageView
-            android:id="@+id/iconVote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_vote"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@id/scrollChipGroup"
-            app:layout_constraintStart_toStartOf="@id/scrollChipGroup"
-            tools:layout_editor_absoluteY="84dp" />
+            android:id="@+id/iconVoteHolder"
+            android:layout_width="10dp"
+            android:layout_height="11dp"
+            android:layout_marginBottom="12dp"
+            android:background="@color/shimmer_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/scrollChipGroupHolder" />
 
         <TextView
-            android:id="@+id/tvMovieVote"
+            android:id="@+id/tvMovieLengthHolder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:fontFamily="@font/mulish_regular"
-            android:text="1s 47dk"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@id/iconVote"
-            app:layout_constraintStart_toEndOf="@id/iconVote"
-            app:layout_constraintTop_toTopOf="@id/iconVote" />
+            android:background="@color/shimmer_gray"
+            android:text="                "
+            app:layout_constraintBottom_toBottomOf="@id/iconVoteHolder"
+            app:layout_constraintStart_toEndOf="@id/iconVoteHolder"
+            app:layout_constraintTop_toTopOf="@id/iconVoteHolder" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/selector_movie_detail_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvMovieDetailName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/mulish_bold"
+                android:text="Spiderman"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/ibMovieDetailBookmark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27dp"
+                android:layout_marginEnd="24dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_bookmark_border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/icStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="34dp"
+                android:src="@drawable/ic_star"
+                app:layout_constraintStart_toStartOf="@id/tvMovieDetailName"
+                app:layout_constraintTop_toBottomOf="@id/tvMovieDetailName" />
+
+            <TextView
+                android:id="@+id/tvMovieDetalRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/mulish_regular"
+                android:text="puan"
+                android:textColor="@color/gray_darker"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/icStar"
+                app:layout_constraintStart_toEndOf="@id/icStar"
+                app:layout_constraintTop_toTopOf="@id/icStar" />
+
+            <HorizontalScrollView
+                android:id="@+id/scrollChipGroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/icStar"
+                app:layout_constraintTop_toBottomOf="@id/icStar">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/movieDetailChipGroup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:chipSpacingHorizontal="3dp"
+                    app:singleLine="true" />
+
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/titleTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/mulish_regular"
+                android:text="Süre"
+                android:textColor="@color/gray_darker"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@id/scrollChipGroup"
+                app:layout_constraintTop_toBottomOf="@id/scrollChipGroup" />
+
+            <TextView
+                android:id="@+id/tvMovieDetailTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/mulish_semi_bold"
+                android:text="2s"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@id/titleTime"
+                app:layout_constraintTop_toBottomOf="@id/titleTime" />
+
+            <TextView
+                android:id="@+id/titleLanguage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="83dp"
+                android:fontFamily="@font/mulish_regular"
+                android:text="Dil"
+                android:textColor="@color/gray_darker"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/titleTime"
+                app:layout_constraintStart_toEndOf="@id/titleTime"
+                app:layout_constraintTop_toTopOf="@id/titleTime" />
+
+            <TextView
+                android:id="@+id/tvMovieDetailLanguage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/mulish_semi_bold"
+                android:text="ingilizce"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@id/titleLanguage"
+                app:layout_constraintTop_toBottomOf="@id/titleLanguage" />
+
+            <TextView
+                android:id="@+id/titleReleaseDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="93dp"
+                android:fontFamily="@font/mulish_regular"
+                android:text="Yayınlanma Tarihi"
+                android:textColor="@color/gray_darker"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/titleLanguage"
+                app:layout_constraintStart_toEndOf="@id/titleLanguage"
+                app:layout_constraintTop_toTopOf="@id/titleLanguage" />
+
+            <TextView
+                android:id="@+id/tvMovieDetailReleaseDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/mulish_semi_bold"
+                android:text="Pegi"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@id/titleReleaseDate"
+                app:layout_constraintTop_toBottomOf="@id/titleReleaseDate" />
+
+            <TextView
+                android:id="@+id/titleDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/merriweather_black"
+                android:text="Açıklama"
+                android:textColor="@color/title_blue"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/tvMovieDetailTime"
+                app:layout_constraintTop_toBottomOf="@id/tvMovieDetailTime" />
+
+            <TextView
+                android:id="@+id/tvMovieDetailDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/mulish_regular"
+                android:lineSpacingMultiplier="1.2"
+                android:text="@string/lorem"
+                android:textColor="@color/gray_darker"
+                app:layout_constraintTop_toBottomOf="@id/titleDesc" />
+
+            <TextView
+                android:id="@+id/titleCast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/merriweather_black"
+                android:text="Cast"
+                android:textColor="@color/title_blue"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/tvMovieDetailDesc"
+                app:layout_constraintTop_toBottomOf="@id/tvMovieDetailDesc" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rwMovieDetailCast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/titleCast" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>
